@@ -1,7 +1,7 @@
 # ML_salary_prediction
 Project Title: Predicting Employee Salary Using Candidate Analytics
 
-#Description:
+<h3>Description:</h3>
 
 This Streamlit application leverages a linear regression model to estimate employee salaries based on their experience (in years), test scores (out of 10), and interview scores (out of 10). It's designed to assist in analyzing candidate data for recruitment purposes.
 
