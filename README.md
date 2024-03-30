@@ -26,4 +26,10 @@ This Streamlit application leverages a linear regression model to estimate emplo
 
 ```bash
 pip install streamlit streamlit-shadcn-ui pandas sklearn
+```
 
+2. **Run the App
+
+```bash
+streamlit run main.py
+```
