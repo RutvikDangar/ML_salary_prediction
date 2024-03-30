@@ -74,8 +74,11 @@ with col2:
 with col3:
     user_inputs.append(st.number_input(labels[2], min_value=0, max_value=10, placeholder=placeholders[2]))
     
+st.write("Choose Fields : ")    
+
 if len(user_inputs) > 0:
     experience, test_score, interview_score = user_inputs
+    st.subheader("Values :")
     calclulateSalary(user_inputs)
     
     
