@@ -6,11 +6,11 @@ from word2number import w2n
 import math 
 
 
-with open('./Predicting_Salary/style.css') as f:
+with open('./style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 
-df = pd.read_csv("./Predicting_Salary/hiring.csv")
+df = pd.read_csv("./hiring.csv")
 
 df = df.rename(columns={'test_score(out of 10)': 'test_score'})
 df = df.rename(columns={'interview_score(out of 10)': 'interview_score'})
@@ -57,7 +57,7 @@ placeholders = ["Years of Experience ", "Score (out of 10)", "Score (out of 10)"
 
 user_inputs = []
 
-
+st.write("Choose Fields : ")   
 col1, col2, col3 = st.columns(3)
 
 with col1:
@@ -67,7 +67,7 @@ with col2:
 with col3:
     user_inputs.append(st.number_input(labels[2], min_value=0, max_value=10, placeholder=placeholders[2]))
     
-st.write("Choose Fields : ")    
+ 
 
 if len(user_inputs) > 0:
     experience, test_score, interview_score = user_inputs
