@@ -1,3 +1,4 @@
+streamlit_shadcn_ui
 pandas
 scikit-learn
 word2number
