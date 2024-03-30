@@ -10,7 +10,7 @@ with open('./Predicting_Salary/style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 
-df = pd.read_csv("hiring.csv")
+df = pd.read_csv("./Predicting_Salary/hiring.csv")
 df = df.rename(columns={'test_score(out of 10)': 'test_score'})
 df = df.rename(columns={'interview_score(out of 10)': 'interview_score'})
 df = df.rename(columns={'salary($)': 'salary'})
