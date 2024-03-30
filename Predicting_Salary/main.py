@@ -6,7 +6,7 @@ from word2number import w2n
 
 
 
-with open('./style.css') as f:
+with open('./Predicting_Salary/style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 
