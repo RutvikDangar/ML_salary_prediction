@@ -52,11 +52,11 @@ def calclulateSalary(data):
 
 
 
-
-salary_info = calclulateSalary([1,9,6])
+st.write("Demo:")
+calclulateSalary([1,9,6])
 
 # Display as a table using st.dataframe
-st.write("Demo:")
+
 
 
 labels = ["Experience", "Test Score", "Interview Score"]
