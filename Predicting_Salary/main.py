@@ -3,7 +3,7 @@ import streamlit_shadcn_ui as ui
 import pandas as pd
 from sklearn import linear_model
 from word2number import w2n
-
+import math 
 
 
 with open('./Predicting_Salary/style.css') as f:
@@ -11,18 +11,17 @@ with open('./Predicting_Salary/style.css') as f:
 
 
 df = pd.read_csv("./Predicting_Salary/hiring.csv")
+
 df = df.rename(columns={'test_score(out of 10)': 'test_score'})
 df = df.rename(columns={'interview_score(out of 10)': 'interview_score'})
 df = df.rename(columns={'salary($)': 'salary'})
 
+
 st.header("Predicting Employee Salary: Using Candidate Analytics")
-
-
 st.write("Initial data : ")
 st.write(df)
 
 
-import math 
 df.experience = df.experience.fillna('zero')
 test_score_mean = math.floor(df.test_score.mean())
 df.test_score = df.test_score.fillna(test_score_mean)
@@ -33,31 +32,25 @@ ui.table(df)
 
 reg = linear_model.LinearRegression()
 reg.fit(df[['experience','test_score','interview_score']], df.salary)
-
 st.write("Regression Coffs.")
-
 st.write(reg.coef_,)
 
-def predictSalary(data):
+def cal_predictSalary(data):
     return reg.predict(pd.DataFrame(data, columns=['experience','test_score','interview_score']))
 
-def calclulateSalary(data):
+def predictSalary(data):
     formated_data =   {
         "experience": data[0],
         "test_score": data[1],
         "interview_score": data[2],
-        "Expected Salary":math.floor(predictSalary([data])[0])
+        "Expected Salary":math.floor(cal_predictSalary([data])[0])
     }
     return st.dataframe(formated_data)
 
 
 
 st.write("Demo:")
-calclulateSalary([1,9,6])
-
-# Display as a table using st.dataframe
-
-
+predictSalary([1,9,6])
 
 labels = ["Experience", "Test Score", "Interview Score"]
 placeholders = ["Years of Experience ", "Score (out of 10)", "Score (out of 10)"]
@@ -79,7 +72,7 @@ st.write("Choose Fields : ")
 if len(user_inputs) > 0:
     experience, test_score, interview_score = user_inputs
     st.subheader("Values :")
-    calclulateSalary(user_inputs)
+    predictSalary(user_inputs)
     
     
 
