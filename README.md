@@ -33,3 +33,37 @@ pip install streamlit streamlit-shadcn-ui pandas sklearn
 ```bash
 streamlit run main.py
 ```
+
+3. Interact with the App
+   
+* Enter years of experience, test score (out of 10), and interview score (out of 10) in the designated fields.
+* Table will Display the entered inputs and estimated salary.
+
+## Code Structure
+
+The code is organized into three main sections:
+
+1. Data Loading and Cleaning
+
+  * Loads employee data from "hiring.csv" located in the "Predicting_Salary" directory.
+  * Renames data columns for clarity.
+  * Replaces "zero" in the experience column with 0 (years).
+  * Handles missing test scores by imputing the average score.
+    
+2. Model Training
+
+  * Trains a linear regression model using experience (years), test score, and interview score as features to predict salary.
+  * Displays the model's regression coefficients for insights.
+    
+3. Prediction and User Interface
+
+  * Defines functions for predicting salary based on user input.
+  * Creates a user-friendly interface with Streamlit components to enter candidate information.
+  * Presents the predicted salary along with experience, test score, and interview score in a formatted table.
+
+## Additional Notes
+
+  * Custom CSS styling is included in a separate file "style.css" for visual enhancements.
+
+```I hope this is helpful!```
+
