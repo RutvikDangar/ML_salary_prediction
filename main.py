@@ -73,6 +73,3 @@ if len(user_inputs) > 0:
     experience, test_score, interview_score = user_inputs
     st.subheader("Values :")
     predictSalary(user_inputs)
-    
-    
-
